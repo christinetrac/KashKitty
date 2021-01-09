@@ -57,49 +57,5 @@ export default function BudgetBar({ navigation, categoryIcon }) {
         </View>
       </TouchableWithoutFeedback>
     </View>
-
-    // <View
-    //   style={{
-    //     backgroundColor: "#F5F3F3",
-    //     width: "90%",
-    //     height: 140,
-    //     borderRadius: 20,
-    //     alignItems: "center",
-    //     justifyContent: "flex-end",
-    //   }}
-    // >
-    //   <TouchableWithoutFeedback>
-    //     {/* <View
-    //     style={{
-    //       flexDirection: "row",
-    //       backgroundColor: "red",
-    //       width: "100%",
-    //       justifyContent: "space-between",
-    //     }}
-    //   >
-    //     <Text>$0</Text>
-    //     <Text>$100</Text>
-    //   </View> */}
-    //     <View
-    //       style={{
-    //         flexDirection: "row",
-    //         justifyContent: "center",
-    //         alignItems: "center",
-    //       }}
-    //     >
-    //       {props.categoryIcon}
-    //       <ProgressBar
-    //         style={{ marginLeft: 20 }}
-    //         progress={fraction}
-    //         width={250}
-    //         height={15}
-    //         borderRadius={10}
-    //         color={color}
-    //         unfilledColor={"white"}
-    //       />
-    //     </View>
-    //     <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
-    //   </TouchableWithoutFeedback>
-    // </View>
   );
 }
