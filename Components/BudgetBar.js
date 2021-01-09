@@ -1,14 +1,15 @@
 import React from "react";
-import { View, Text, TouchableWithoutFeedback } from "react-native";
+import { View, TouchableWithoutFeedback } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
 import { MaterialIcons } from "@expo/vector-icons";
+import { withNavigation } from "react-navigation";
 
-export default function BudgetBar(props) {
+export default function BudgetBar({ navigation, categoryIcon }) {
   const fraction = 90 / 100; //TODO: Make this a prop
   let color = "#109671";
 
   function showAlert() {
-    alert("You tapped the button!");
+    alert(`hi${navigation}`);
   }
 
   return (
@@ -21,7 +22,9 @@ export default function BudgetBar(props) {
         justifyContent: "flex-end",
       }}
     >
-      <TouchableWithoutFeedback onPress={showAlert}>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("TransactionPage")}
+      >
         <View
           style={{
             width: "100%",
@@ -39,7 +42,7 @@ export default function BudgetBar(props) {
               alignItems: "center",
             }}
           >
-            {props.categoryIcon}
+            {categoryIcon}
             <ProgressBar
               style={{ marginLeft: 20 }}
               progress={fraction}

@@ -15,6 +15,7 @@ export const Home = ({ navigation, props }) => {
       >
         <View style={{ alignItems: "center" }}>
           <BudgetBar
+            navigation={navigation}
             categoryIcon={
               <FontAwesome name="paw" size={35} color={"#E3E3E3"} />
             }
