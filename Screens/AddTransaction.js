@@ -9,11 +9,8 @@ export const Transaction = (props) => {
       <View>
         <TextInput
           value={text}
-          style={{ fontSize: 24, color: 'steelblue' }}
-          placeholder="Type here..."
-          onChangeText={(text) => {
-            setText(text)
-          }}
+          placeholder="Input Spending Amount..."
+          onChangeText={(text) => value.match(/[0-9]*/gm) && setText(text)}
         />
       </View>
     )
