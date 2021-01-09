@@ -21,7 +21,7 @@ const BottomTabNavigator = () => {
                 );
             } else if (route.name === "Personal") {
                 return <FontAwesome name="heart" size={size} color={color} />;
-            } else if (route.name === "Entertainment") {
+            } else if (route.name === "Entertain") {
                 return <FontAwesome5 name="utensils" size={size} color={color} />;
             }
             },
@@ -29,11 +29,11 @@ const BottomTabNavigator = () => {
         >
         <Tab.Screen name="Home" component={StackNavigator} />
         <Tab.Screen name="Necessities" component={NecessitiesStackNavigator} />
+        <Tab.Screen name="Entertain" component={EntertainmentStackNavigator} />
         <Tab.Screen name="Personal" component={PersonalStackNavigator} />
-        <Tab.Screen name="Entertainment" component={EntertainmentStackNavigator} />
         </Tab.Navigator>
     </NavigationContainer>
   );
 };
-  
+
 export { BottomTabNavigator };

@@ -19,7 +19,7 @@ const StackNavigator = () => {
         <Stack.Screen name="TransactionPage" options={{headerShown: true}} component={TransactionPage} />
       </Stack.Navigator>
     );
-}
+};
 
 const NecessitiesStackNavigator = () => {
     return (
@@ -27,7 +27,7 @@ const NecessitiesStackNavigator = () => {
           <Stack.Screen name="Necessities" component={Necessities} />
         </Stack.Navigator>
     );
-}
+};
 
 const PersonalStackNavigator = () => {
     return (
@@ -35,7 +35,7 @@ const PersonalStackNavigator = () => {
           <Stack.Screen name="Personal" component={Personal} />
         </Stack.Navigator>
     );
-}
+};
 
 const EntertainmentStackNavigator = () => {
     return (
@@ -43,6 +43,6 @@ const EntertainmentStackNavigator = () => {
           <Stack.Screen name="Entertainment" component={Entertainment} />
         </Stack.Navigator>
     );
-}
+};
 
 export { StackNavigator, NecessitiesStackNavigator, PersonalStackNavigator, EntertainmentStackNavigator };

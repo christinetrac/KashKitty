@@ -4,4 +4,10 @@ const TYPE = {
     entertainment: 'Entertainment'
 };
 
-export { TYPE };
+const LEVEL = {
+    light: 'Light',
+    moderate: 'Moderate',
+    heavy: 'Heavy'
+};
+
+export { TYPE, LEVEL };
