@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export const Entertainment = (props) => {
+export const Entertainment = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -12,6 +12,7 @@ export const Entertainment = (props) => {
       >
         <View style={{ alignItems: "center" }}>
           <BudgetBar
+            navigation={navigation}
             categoryIcon={
               <FontAwesome5 name="utensils" size={35} color={"#E3E3E3"} />
             }
