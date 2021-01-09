@@ -12,7 +12,7 @@ const data = [
   { spendingLevel: "Light spending", title: "McDonalds", amount: 7.43, id: 5 },
   { spendingLevel: "Light spending", title: "McDonalds", amount: 7.43, id: 6 },
   { spendingLevel: "Light spending", title: "McDonalds", amount: 7.43, id: 7 },
-  { spendingLevel: "Light spending", title: "McDonalds", amount: 7.43, id: 9 },
+  { spendingLevel: "Light spending", title: "McDonalds", amount: 7.43, id: 8 },
 ];
 
 const Transaction = ({ title, spendingLevel, amount }) => (
@@ -58,18 +58,11 @@ const Transaction = ({ title, spendingLevel, amount }) => (
 
 export default function TransactionsList(props) {
   return (
-    <View style={{}}>
+    <View style={{ padding: 30 }}>
       <Text>Personal</Text>
       <Text>BUDGET</Text>
-      <TouchableHighlight
-        style={{ borderRadius: 10, backgroundColor: "red" }}
-        onPress={() => alert("hello")}
-      >
-        <View style={styles.button}>
-          <Text>SAT</Text>
-          <Text style={styles.date}>09</Text>
-        </View>
-      </TouchableHighlight>
+
+      <Text>TRANSACTION HISTORY</Text>
       <SafeAreaView style={{ marginHorizontal: 30 }}>
         <FlatList
           style={{ height: 500 }}
