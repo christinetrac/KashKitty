@@ -8,7 +8,7 @@ export const TransactionPage = (props) => {
             <TextInput
                 value={text}
                 placeholder="Input Spending Amount..."
-                onChangeText={(text) => value.match(/[0-9]*/gm) && setText(text)}
+                onChangeText={(text) => text.match(/[0-9]*/gm) && setText(text)}
             />
         </View>
     )
