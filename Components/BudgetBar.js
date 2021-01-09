@@ -12,7 +12,6 @@ export default function BudgetBar() {
       style={{
         backgroundColor: "#E5E5E5",
         padding: 10,
-        width: "90%",
         height: 130,
         borderRadius: 20,
         alignItems: "center",
