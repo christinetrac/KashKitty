@@ -37,33 +37,5 @@ const BottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-    return (
-        <NavigationContainer>
-            <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          if (route.name === "Home") {
-            return <FontAwesome name="paw" size={size} color={color} />;
-          } else if (route.name === "Necessities") {
-            return (
-              <FontAwesome5 name="toilet-paper" size={size} color={color} />
-            );
-          } else if (route.name === "Personal") {
-            return <FontAwesome name="heart" size={size} color={color} />;
-          } else if (route.name === "Entertainment") {
-            return <FontAwesome5 name="utensils" size={size} color={color} />;
-          }
-        },
-      })}
-    >
-                <Tab.Screen name="Home" component={StackNavigator} />
-                <Tab.Screen name="Necessities" component={NecessitiesStackNavigator} />
-                <Tab.Screen name="Personal" component={PersonalStackNavigator} />
-                <Tab.Screen name="Entertainment" component={EntertainmentStackNavigator} />
-            </Tab.Navigator>
-        </NavigationContainer>
-    );
-  };
   
 export { BottomTabNavigator };
