@@ -23,7 +23,7 @@ export default function BudgetBar({ navigation, categoryIcon }) {
       }}
     >
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("TransactionPage")}
+        onPress={() => navigation.navigate("TransactionsList")}
       >
         <View
           style={{

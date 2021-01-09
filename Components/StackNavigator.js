@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "../Screens/Home";
 import { TransactionPage } from "./TransactionPage";
+import TransactionsList from "../Screens/TransactionsList";
 import { Necessities } from "../Screens/Necessities";
 import { Personal } from "../Screens/Personal";
 import { Entertainment } from "../Screens/Entertainment";
@@ -25,6 +26,11 @@ const StackNavigator = () => {
         options={{ headerShown: true }}
         component={TransactionPage}
       />
+      <Stack.Screen
+        name="TransactionsList"
+        options={{ headerShown: true }}
+        component={TransactionsList}
+      />
     </Stack.Navigator>
   );
 };
@@ -37,6 +43,11 @@ const NecessitiesStackNavigator = () => {
         name="TransactionPage"
         options={{ headerShown: true }}
         component={TransactionPage}
+      />
+      <Stack.Screen
+        name="TransactionsList"
+        options={{ headerShown: true }}
+        component={TransactionsList}
       />
     </Stack.Navigator>
   );
@@ -51,6 +62,11 @@ const PersonalStackNavigator = () => {
         options={{ headerShown: true }}
         component={TransactionPage}
       />
+      <Stack.Screen
+        name="TransactionsList"
+        options={{ headerShown: true }}
+        component={TransactionsList}
+      />
     </Stack.Navigator>
   );
 };
@@ -63,6 +79,11 @@ const EntertainmentStackNavigator = () => {
         name="TransactionPage"
         options={{ headerShown: true }}
         component={TransactionPage}
+      />
+      <Stack.Screen
+        name="TransactionsList"
+        options={{ headerShown: true }}
+        component={TransactionsList}
       />
     </Stack.Navigator>
   );
