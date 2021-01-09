@@ -2,13 +2,25 @@ import React, {useState} from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import DropDownPicker from 'react-native-dropdown-picker';
-
+import { storeTransaction } from "../Utils/storage";
 
 export const TransactionPage = (props) => {
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
     const [category, setCategory] = useState('');
     const [level, setLevel] = useState('');
+
+    const saveTransaction = () => {
+        const transaction = {
+            name: description,
+            amount: amount,
+            date: new Date().toDateString(),
+            type: category,
+            level: level
+        };
+        storeTransaction(transaction).then();
+    };
+
     return (
         <View style={styles.container}>
             <TextInput
@@ -59,6 +71,7 @@ export const TransactionPage = (props) => {
             />
             <Button
                 title={'Save'}
+                onPress={() => saveTransaction()}
             />
         </View>
     )
