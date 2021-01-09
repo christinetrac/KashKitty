@@ -1,43 +1,61 @@
 import React from "react";
-import { Button, View } from "react-native";
+import { View, TouchableWithoutFeedback } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
-import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { withNavigation } from "react-navigation";
 
-export default function BudgetBar() {
-  const fraction = 90 / 100;
+export default function BudgetBar({ navigation, categoryIcon }) {
+  const fraction = 90 / 100; //TODO: Make this a prop
   let color = "#109671";
+
+  function showAlert() {
+    alert(`hi${navigation}`);
+  }
+
   return (
     <View
       style={{
-        backgroundColor: "#E5E5E5",
-        padding: 10,
         width: "90%",
-        height: 130,
+        height: 140,
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "flex-end",
       }}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("TransactionsList")}
       >
-        <FontAwesome name="heart" size={35} color={"#A8A8A8"} />
-        {/* TODO Pass in icon name? */}
-        <ProgressBar
-          progress={fraction}
-          width={250}
-          height={15}
-          borderRadius={10}
-          color={color}
-          unfilledColor={"white"}
-        />
-      </View>
-      <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
+        <View
+          style={{
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            backgroundColor: "#F5F3F3",
+            borderRadius: 20,
+            justifyContent: "flex-end",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {categoryIcon}
+            <ProgressBar
+              style={{ marginLeft: 20 }}
+              progress={fraction}
+              width={250}
+              height={15}
+              borderRadius={10}
+              color={color}
+              unfilledColor={"white"}
+            />
+          </View>
+          <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   );
 }
