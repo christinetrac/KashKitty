@@ -29,7 +29,7 @@ export const Home = ({ navigation, props }) => {
           reverse
           onPress={() => navigation.navigate("TransactionPage")}
           name="add"
-          color="#000"
+          color="#FEC89A"
           style={styles.addButton}
         />
       </View>
@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     zIndex: 5,
     bottom: 0,
     position: "absolute",
-    marginBottom: 0,
+    marginBottom: 50,
   },
 });
