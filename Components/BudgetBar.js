@@ -1,42 +1,102 @@
 import React from "react";
-import { Button, View } from "react-native";
+import { View, Text, TouchableWithoutFeedback } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
-import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function BudgetBar() {
-  const fraction = 90 / 100;
+export default function BudgetBar(props) {
+  const fraction = 90 / 100; //TODO: Make this a prop
   let color = "#109671";
+
+  function showAlert() {
+    alert("You tapped the button!");
+  }
+
   return (
     <View
       style={{
-        backgroundColor: "#E5E5E5",
-        padding: 10,
-        height: 130,
+        width: "90%",
+        height: 140,
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "flex-end",
       }}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <FontAwesome name="heart" size={35} color={"#A8A8A8"} />
-        {/* TODO Pass in icon name? */}
-        <ProgressBar
-          progress={fraction}
-          width={250}
-          height={15}
-          borderRadius={10}
-          color={color}
-          unfilledColor={"white"}
-        />
-      </View>
-      <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
+      <TouchableWithoutFeedback onPress={showAlert}>
+        <View
+          style={{
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            backgroundColor: "#F5F3F3",
+            borderRadius: 20,
+            justifyContent: "flex-end",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {props.categoryIcon}
+            <ProgressBar
+              style={{ marginLeft: 20 }}
+              progress={fraction}
+              width={250}
+              height={15}
+              borderRadius={10}
+              color={color}
+              unfilledColor={"white"}
+            />
+          </View>
+          <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
+
+    // <View
+    //   style={{
+    //     backgroundColor: "#F5F3F3",
+    //     width: "90%",
+    //     height: 140,
+    //     borderRadius: 20,
+    //     alignItems: "center",
+    //     justifyContent: "flex-end",
+    //   }}
+    // >
+    //   <TouchableWithoutFeedback>
+    //     {/* <View
+    //     style={{
+    //       flexDirection: "row",
+    //       backgroundColor: "red",
+    //       width: "100%",
+    //       justifyContent: "space-between",
+    //     }}
+    //   >
+    //     <Text>$0</Text>
+    //     <Text>$100</Text>
+    //   </View> */}
+    //     <View
+    //       style={{
+    //         flexDirection: "row",
+    //         justifyContent: "center",
+    //         alignItems: "center",
+    //       }}
+    //     >
+    //       {props.categoryIcon}
+    //       <ProgressBar
+    //         style={{ marginLeft: 20 }}
+    //         progress={fraction}
+    //         width={250}
+    //         height={15}
+    //         borderRadius={10}
+    //         color={color}
+    //         unfilledColor={"white"}
+    //       />
+    //     </View>
+    //     <MaterialIcons name="keyboard-arrow-down" size={30} color="#A8A8A8" />
+    //   </TouchableWithoutFeedback>
+    // </View>
   );
 }
