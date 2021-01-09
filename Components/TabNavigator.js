@@ -1,10 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from '@react-navigation/native';
-import { Home } from '../Screens/Home';
-import { Necessities } from '../Screens/Necessities';
-import { Personal } from '../Screens/Personal';
-import { Entertainment } from '../Screens/Entertainment';
+
+import { StackNavigator, NecessitiesStackNavigator, PersonalStackNavigator, EntertainmentStackNavigator } from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,10 +10,10 @@ const BottomTabNavigator = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator>
-                <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Necessities" component={Necessities} />
-                <Tab.Screen name="Personal" component={Personal} />
-                <Tab.Screen name="Entertainment" component={Entertainment} />
+                <Tab.Screen name="Home" component={StackNavigator} />
+                <Tab.Screen name="Necessities" component={NecessitiesStackNavigator} />
+                <Tab.Screen name="Personal" component={PersonalStackNavigator} />
+                <Tab.Screen name="Entertainment" component={EntertainmentStackNavigator} />
             </Tab.Navigator>
         </NavigationContainer>
     );

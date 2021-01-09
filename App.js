@@ -5,7 +5,7 @@ import { BottomTabNavigator } from './Components/TabNavigator';
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <BottomTabNavigator/>
+      <BottomTabNavigator style={styles.tab}/>
     </SafeAreaView>
   );
 }
@@ -17,4 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  tab: {
+    zIndex: -1
+  }
 });
