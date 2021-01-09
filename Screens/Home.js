@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { Icon } from 'react-native-elements';
+import BudgetBar from "../Components/BudgetBar";
 
-export const Home = ({navigation}) => {
+// const red = Math.min(2 - (2 * Fraction), 1) * 255; const green = Math.min(2 * Fraction, 1) * 255;
+
+export const Home = ({navigation, props}) => {
     return (
         <View style={styles.container}>
-            <Text>
-                Home
-            </Text>
+            <BudgetBar style={{ alignSelf: "flex-start" }} />
             <View style={styles.addButtonContainer}>
                 <Icon raised reverse onPress={() => navigation.navigate("TransactionPage")} name='add' color='#000' style={styles.addButton}/>
             </View>
