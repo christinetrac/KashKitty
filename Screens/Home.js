@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native';
 import { Icon } from 'react-native-elements';
 import BudgetBar from "../Components/BudgetBar";
 
@@ -9,6 +9,11 @@ export const Home = ({navigation, props}) => {
     return (
         <View style={styles.container}>
             <BudgetBar style={{ alignSelf: "flex-start" }} />
+            <ImageBackground source={require('../assets/temp-background.jpg')} style={{width: '100%', height: '100%'}}>
+                <Text>
+                    Home
+                </Text> 
+            </ImageBackground>
             <View style={styles.addButtonContainer}>
                 <Icon raised reverse onPress={() => navigation.navigate("TransactionPage")} name='add' color='#000' style={styles.addButton}/>
             </View>
