@@ -176,7 +176,7 @@ export const Home = ({ navigation, props }) => {
 
   const Header = () => {
     let total = user && user.totalBudget ? user.totalBudget : 0;
-    let used = 500;
+    let used = user && user.totalTransactions ? user.totalTransactions : 0;
     return (
       <SheetHeader
         icon={

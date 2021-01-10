@@ -33,29 +33,30 @@ function getBarColor(percentage) {
   }
 }
 
-const Header = () => {
-  let total = 1000;
-  let used = 500;
-  return (
-    <SheetHeader
-      icon={
-        <FontAwesome
-          name="heart"
-          size={40}
-          color={getBarColor(used / total)}
-          style={styles.icons}
-        />
-      }
-      total={total}
-      used={used}
-      color={getBarColor(used / total)}
-    />
-  );
-};
-
 export const Personal = ({ navigation }) => {
   const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
+
+  const Header = () => {
+    let total = user && user.personalBudget ? user.personalBudget : 0;
+    let used =
+      user && user.personalTransactions ? user.personalTransactions : 0;
+    return (
+      <SheetHeader
+        icon={
+          <FontAwesome
+            name="heart"
+            size={40}
+            color={getBarColor(used / total)}
+            style={styles.icons}
+          />
+        }
+        total={total}
+        used={used}
+        color={getBarColor(used / total)}
+      />
+    );
+  };
 
   useEffect(() => {
     getStoredTransactions().then((res) => {

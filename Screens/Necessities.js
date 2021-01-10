@@ -23,28 +23,6 @@ function getBarColor(percentage) {
     return "#DD6B6B";
   }
 }
-const NecessitiesList = () => {
-  return <TransactionsList category="Necessities"></TransactionsList>;
-};
-const Header = () => {
-  let total = 1000;
-  let used = 500;
-  return (
-    <SheetHeader
-      icon={
-        <FontAwesome5
-          name="toilet-paper"
-          size={40}
-          color={getBarColor(used / total)}
-          style={styles.icons}
-        />
-      }
-      total={total}
-      used={used}
-      color={getBarColor(used / total)}
-    />
-  );
-};
 export const Necessities = ({ navigation }) => {
   const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
@@ -72,6 +50,30 @@ export const Necessities = ({ navigation }) => {
       );
     }
   }
+
+  const NecessitiesList = () => {
+    return <TransactionsList category="Necessities"></TransactionsList>;
+  };
+  const Header = () => {
+    let total = user && user.necessitiesBudget ? user.necessitiesBudget : 0;
+    let used =
+      user && user.necessitiesTransactions ? user.necessitiesTransactions : 0;
+    return (
+      <SheetHeader
+        icon={
+          <FontAwesome5
+            name="toilet-paper"
+            size={40}
+            color={getBarColor(used / total)}
+            style={styles.icons}
+          />
+        }
+        total={total}
+        used={used}
+        color={getBarColor(used / total)}
+      />
+    );
+  };
 
   const meanie =
     CATS[2].percent >= calculate() ? (

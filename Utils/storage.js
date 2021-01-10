@@ -62,14 +62,14 @@ const getStoredTransactions = async () => {
 */
 
 const newUser = {
-  totalBudget: 1000,
-  entertainmentBudget: 200,
-  necessitiesBudget: 200,
-  personalBudget: 200,
-  totalTransactions: 50,
-  entertainmentTransactions: 150,
-  necessitiesTransactions: 80,
-  personalTransactions: 10,
+  totalBudget: 0,
+  entertainmentBudget: 0,
+  necessitiesBudget: 0,
+  personalBudget: 0,
+  totalTransactions: 0,
+  entertainmentTransactions: 0,
+  necessitiesTransactions: 0,
+  personalTransactions: 0,
   cats: [CATS[0], CATS[3], CATS[7]],
 };
 

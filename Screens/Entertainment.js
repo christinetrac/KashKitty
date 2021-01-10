@@ -23,31 +23,34 @@ function getBarColor(percentage) {
     return "#DD6B6B";
   }
 }
-const EntertainList = () => {
-  return <TransactionsList category="Entertainment"></TransactionsList>;
-};
-const Header = () => {
-  let total = 1000;
-  let used = 800;
-  return (
-    <SheetHeader
-      icon={
-        <FontAwesome5
-          name="utensils"
-          size={40}
-          color={getBarColor(used / total)}
-          style={styles.icons}
-        />
-      }
-      total={total}
-      used={used}
-      color={getBarColor(used / total)}
-    />
-  );
-};
 export const Entertainment = ({ navigation }) => {
   const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
+  const EntertainList = () => {
+    return <TransactionsList category="Entertainment"></TransactionsList>;
+  };
+  const Header = () => {
+    let total = user && user.entertainmentBudget ? user.entertainmentBudget : 0;
+    let used =
+      user && user.entertainmentTransactions
+        ? user.entertainmentTransactions
+        : 0;
+    return (
+      <SheetHeader
+        icon={
+          <FontAwesome5
+            name="utensils"
+            size={40}
+            color={getBarColor(used / total)}
+            style={styles.icons}
+          />
+        }
+        total={total}
+        used={used}
+        color={getBarColor(used / total)}
+      />
+    );
+  };
 
   useEffect(() => {
     getStoredTransactions().then((res) => {
