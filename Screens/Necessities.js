@@ -20,6 +20,8 @@ const Header = () => {
           style={styles.icons}
         />
       }
+      total={1000}
+      used={55}
     />
   );
 };
@@ -37,7 +39,7 @@ export const Necessities = ({ navigation }) => {
         <BottomSheet
           ref={sheetRef}
           initialSnap={2}
-          snapPoints={[600, 500, 160]}
+          snapPoints={[600, 500, 190]}
           borderRadius={10}
           renderContent={NecessitiesList}
           renderHeader={Header}

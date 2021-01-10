@@ -142,7 +142,7 @@ export const Home = ({ navigation, props }) => {
         <BottomSheet
           ref={sheetRef}
           initialSnap={2}
-          snapPoints={[600, 500, 160]}
+          snapPoints={[600, 500, 190]}
           renderContent={HomeList}
           renderHeader={Header}
           enabledContentGestureInteraction={false}

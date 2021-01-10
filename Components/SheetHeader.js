@@ -28,7 +28,8 @@ export default function SheetHeader({ icon, total, used }) {
             alignItems: "center",
           }}
         >
-          {icon}
+          <View style={{ width: 40, height: 40 }}>{icon}</View>
+
           <View
             style={{
               alignItems: "center",
@@ -47,12 +48,21 @@ export default function SheetHeader({ icon, total, used }) {
               />
             </View>
             <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
+              style={{
+                flexDirection: "row",
+                width: "100%",
+              }}
             >
-              <Text style={styles.dollar}>$0</Text>
-              <Text style={styles.dollar}>${total}</Text>
-              {/* <Text>${used}</Text>
-            <Text>${(used / total).toFixed(2)}</Text> */}
+              <Text style={{ color: "#B4B4B4", flex: 1 }}>$0</Text>
+              <Text
+                style={{
+                  color: "#B4B4B4",
+                  flex: 1,
+                  textAlign: "right",
+                }}
+              >
+                ${total}
+              </Text>
             </View>
           </View>
         </View>
@@ -62,5 +72,5 @@ export default function SheetHeader({ icon, total, used }) {
 }
 
 const styles = StyleSheet.create({
-  dollar: { color: "#B4B4B4" },
+  dollar: { color: "#B4B4B4", flex: 1 },
 });
