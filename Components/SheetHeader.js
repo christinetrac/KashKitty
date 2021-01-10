@@ -2,7 +2,22 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
 import { MaterialIcons } from "@expo/vector-icons";
-export default function SheetHeader({ icon, total, used }) {
+
+function calculatePercentage(used, total) {
+  if (!total || !used) {
+    return 0;
+  }
+  return used / total;
+}
+
+function getBarColor(percentage) {
+  return "#B7CC33";
+}
+
+export default function SheetHeader({ icon, total, used, color }) {
+  let percentage = calculatePercentage(used, total);
+  let barColor = color ? color : "#B7CC33";
+
   return (
     <View
       style={{
@@ -39,11 +54,11 @@ export default function SheetHeader({ icon, total, used }) {
             <Text style={{ color: "#5E6472" }}>${used}</Text>
             <View>
               <ProgressBar
-                progress={1}
+                progress={percentage}
                 width={250}
                 height={15}
                 borderRadius={10}
-                color={"red"}
+                color={barColor}
                 unfilledColor={"white"}
               />
             </View>
@@ -70,7 +85,3 @@ export default function SheetHeader({ icon, total, used }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  dollar: { color: "#B4B4B4", flex: 1 },
-});

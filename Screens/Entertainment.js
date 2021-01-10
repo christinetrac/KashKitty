@@ -6,22 +6,39 @@ import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
 import { Icon } from "react-native-elements";
 
+function getBarColor(percentage) {
+  let rounded = Math.round(percentage * 100) / 100;
+  if (rounded >= 0.0 && rounded < 0.2) {
+    return "#109671";
+  } else if (rounded >= 0.2 && rounded < 0.4) {
+    return "#B7CC33";
+  } else if (rounded >= 0.4 && rounded < 0.6) {
+    return "#F8DC71";
+  } else if (rounded >= 0.6 && rounded < 0.8) {
+    return "#F8F290";
+  } else {
+    return "#DD6B6B";
+  }
+}
 const EnterTainList = () => {
   return <TransactionsList category="Entertainment"></TransactionsList>;
 };
 const Header = () => {
+  let total = 1000;
+  let used = 800;
   return (
     <SheetHeader
       icon={
         <FontAwesome5
           name="utensils"
           size={30}
-          color={"#A8A8A8"}
+          color={getBarColor(used / total)}
           style={styles.icons}
         />
       }
-      total={1000}
-      used={55}
+      total={total}
+      used={used}
+      color={getBarColor(used / total)}
     />
   );
 };
