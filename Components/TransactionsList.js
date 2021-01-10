@@ -93,19 +93,28 @@ export default function TransactionsList({ catIcon, category, transactions }) {
       >
         {category}
       </Text>
-      <Text style={{ marginBottom: 20, fontSize:10, fontWeight:"600" }}>BUDGET</Text>
+      <Text style={{ marginBottom: 12, fontSize:10, fontWeight:"600" }}>BUDGET</Text>
       <View
         style={{
           backgroundColor: "#B8F2E6",
-          width: 70,
-          height: 70,
-          borderRadius: 16,
+          width: 63,
+          height: 66,
+          borderRadius: 20,
           justifyContent: "center",
           alignItems: "center",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.25,
+          blurRadius: 4,
+          padding: 10,
+          paddingTop: 15
         }}
       >
-        <Text style={{ fontWeight: "bold" }}>Mon</Text>
-        <Text style={{ fontWeight: "bold" }}>11</Text>
+        <Text style={{ fontWeight: "700", fontSize:11, lineHeight:15 }}>Mon</Text>
+        <Text style={{ fontWeight: "400", fontSize:28, lineHeight:39 }}>11</Text>
       </View>
       <View
         style={{
