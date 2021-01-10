@@ -82,6 +82,7 @@ export default function TransactionsList({ catIcon, category, transactions }) {
     console.log(transactions);
   }, [transactions]);
   return (
+    <View style={styles.listContainer}>
     <View style={styles.list}>
       <Text
         style={{
@@ -132,15 +133,20 @@ export default function TransactionsList({ catIcon, category, transactions }) {
         />
       </SafeAreaView>
     </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  listContainer: {
+      alignItems: "center"
+  },
   list: {
     backgroundColor: "#F8EDEB",
     height: 600,
     padding: 30,
     paddingTop: 0,
+    width: 380,
   },
   container: {
     flex: 1,
