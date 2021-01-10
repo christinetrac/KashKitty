@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
-import { SafeAreaView, SectionList } from "react-native";
+import { SafeAreaView, SectionList, Image } from "react-native";
 
 function getSpendingClass(spendingLevel) {
   if (spendingLevel === "Light") {
@@ -39,12 +39,55 @@ const Transaction = ({ title, spendingLevel, amount }) => (
         flex: 1,
         alignItems: "flex-end",
         justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Text style={styles.amount}>${amount}</Text>
     </View>
   </View>
 );
+
+function noTransactions(transactions) {
+  if (transactions) {
+    return (
+      <FlatList
+        style={{ height: 500 }}
+        data={transactions}
+        renderItem={({ item }) => (
+          <Transaction
+            title={item.name}
+            spendingLevel={item.level}
+            amount={item.amount}
+          />
+        )}
+        keyExtractor={(item) => {
+          item.amount + item.date + item.name;
+        }}
+      ></FlatList>
+    );
+  } else {
+    return (
+      <View>
+        <View
+          style={{
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            source={require("../Cats/floaty.png")}
+            style={{ width: 200, height: 200 }}
+            resizeMode="contain"
+          />
+          <Text style={{ fontSize: 20, textAlign: "center" }}>
+            Hooray! You didn't spend today.
+          </Text>
+        </View>
+      </View>
+    );
+  }
+}
 
 export default function TransactionsList({ catIcon, category, transactions }) {
   useEffect(() => {
@@ -112,20 +155,7 @@ export default function TransactionsList({ catIcon, category, transactions }) {
           }}
         ></View>
         <SafeAreaView style={{ marginHorizontal: 20 }}>
-          <FlatList
-            style={{ height: 500 }}
-            data={transactions}
-            renderItem={({ item }) => (
-              <Transaction
-                title={item.name}
-                spendingLevel={item.level}
-                amount={item.amount}
-              />
-            )}
-            keyExtractor={(item) => {
-              item.amount + item.date + item.name;
-            }}
-          ></FlatList>
+          {noTransactions(transactions)}
         </SafeAreaView>
       </View>
     </View>
@@ -138,7 +168,7 @@ const styles = StyleSheet.create({
   },
   list: {
     backgroundColor: "#F8EDEB",
-    height: 600,
+    height: 620,
     padding: 31,
     paddingTop: 0,
     width: 380,
