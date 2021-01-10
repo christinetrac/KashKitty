@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { storeTransaction } from "../Utils/storage";
+import { storeTransaction, addUserTransactions } from "../Utils/storage";
 
 export const TransactionPage = (props) => {
     const [description, setDescription] = useState('');
@@ -19,6 +19,7 @@ export const TransactionPage = (props) => {
             level: level
         };
         storeTransaction(transaction).then();
+        addUserTransactions(transaction).then();
     };
 
     return (

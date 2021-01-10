@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome } from "@expo/vector-icons";
+import {Icon} from "react-native-elements";
 
 export const Personal = ({ navigation }) => {
   return (
@@ -20,6 +21,16 @@ export const Personal = ({ navigation }) => {
           <Text>Personal</Text>
         </View>
       </ImageBackground>
+        <View style={styles.addButtonContainer}>
+            <Icon
+                raised
+                reverse
+                onPress={() => navigation.navigate("TransactionPage")}
+                name="add"
+                color="#FEC89A"
+                style={styles.addButton}
+            />
+        </View>
     </View>
   );
 };
@@ -31,4 +42,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+    addButton: {
+        zIndex: 5,
+        flex: 1,
+    },
+    addButtonContainer: {
+        zIndex: 5,
+        bottom: 0,
+        position: "absolute",
+        marginBottom: 50,
+    },
 });
