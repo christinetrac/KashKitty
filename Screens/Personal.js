@@ -67,7 +67,7 @@ export const Personal = ({ navigation }) => {
         <BottomSheet
           ref={sheetRef}
           initialSnap={2}
-          snapPoints={[600, 500, 190]}
+          snapPoints={[800, 600, 190]}
           borderRadius={10}
           renderContent={PersonalList}
           renderHeader={Header}
