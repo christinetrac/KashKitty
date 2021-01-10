@@ -34,7 +34,7 @@ export default function SheetHeader({ icon, total, used, color }) {
           alignItems: "center",
         }}
       >
-        <MaterialIcons name="keyboard-arrow-down" size={35} color="#888888" />
+        <MaterialIcons name="keyboard-arrow-up" size={35} color="#888888" />
         <View
           style={{
             flexDirection: "row",
