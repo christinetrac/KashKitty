@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Icon } from "react-native-elements";
-import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome } from "@expo/vector-icons";
 import Animated from "react-native-reanimated";
 import BottomSheet from "reanimated-bottom-sheet";
