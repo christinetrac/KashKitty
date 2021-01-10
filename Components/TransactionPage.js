@@ -27,10 +27,6 @@ export const TransactionPage = (props) => {
     addUserTransactions(transaction).then();
   };
 
-  const levelSelect = () => {
-    pressed = false;
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.space}></View>
@@ -52,7 +48,7 @@ export const TransactionPage = (props) => {
           { label: "Personal", value: "Personal" },
         ]}
         defaultValue={category}
-        containerStyle={{ width: 334, height: 37, alignSelf: "center" }}
+        containerStyle={{ width: 334, height: 37, marginBottom: 16 }}
         style={{ backgroundColor: "#FFF", borderColor: "#FFF" }}
         itemStyle={{
           justifyContent: "flex-start",
@@ -148,6 +144,7 @@ export const TransactionPage = (props) => {
           </View>
         </TouchableOpacity>
       </View>
+      <View style={styles.saveButtonContainer}>
       <TouchableOpacity
         style={styles.saveButton}
         underlayColor="#000"
@@ -156,8 +153,9 @@ export const TransactionPage = (props) => {
           props.navigation.pop();
         }}
       >
-        <Text style={{ textAlign: "center", fontWeight: "600" }}>Save</Text>
+        <Text style={{ textAlign: "center", fontWeight: "600", fontSize:15, color: '#fff' }}>Save</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -166,18 +164,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F8EDEB",
+    padding: 0,
+    alignSelf: "center",
+    width: 100+'%',
+    paddingLeft: 38
   },
   header: {
-    left: 22,
     width: 245,
     height: 29,
     fontSize: 24,
     fontWeight: "600",
     textAlign: "left",
-    paddingBottom: 10,
+    paddingBottom: 20,
   },
   input: {
-    left: 22,
     fontWeight: "600",
     fontSize: 10,
     letterSpacing: 0.08,
@@ -190,12 +190,12 @@ const styles = StyleSheet.create({
     height: 37,
     backgroundColor: "#FFF",
     borderRadius: 5,
-    alignSelf: "center",
+    marginBottom: 16,
+    padding: 10
   },
   buttonContainer: {
     width: 334,
     height: 85,
-    left: 22,
     backgroundColor: "#EAEAEA",
     borderRadius: 10,
   },
@@ -208,17 +208,19 @@ const styles = StyleSheet.create({
     height: 43,
     marginTop: 10,
     backgroundColor: "#FEC89A",
-    borderRadius: 10,
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: "#FEC89A",
     justifyContent: "center",
-    alignSelf: "center",
   },
+    saveButtonContainer: {
+        alignSelf: "center",
+        marginLeft: -36
+    },
   loginScreenButton: {
     width: 334,
     height: 85,
-    marginTop: 10,
-    left: 22,
+    marginBottom: 14,
     backgroundColor: "#FFF",
     borderRadius: 10,
     borderWidth: 1,
