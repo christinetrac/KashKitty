@@ -20,10 +20,10 @@ import {
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
+import {CATS} from "../Constants/constants";
 
 export const Home = ({ navigation, props }) => {
   const sheetRef = React.useRef(null);
-  const [user, setUser] = useState(null);
   const [visible, setVisible] = useState(false);
   const [overall, setOverall] = useState("");
   const [entertain, setEntertain] = useState("");
@@ -36,9 +36,11 @@ export const Home = ({ navigation, props }) => {
     setVisible(!visible);
   };
 
+  const [user, setUser] = useState(null);
+
   async function userInfo() {
-    let storedUser = await AsyncStorage.getItem("@user_info");
-    if (!storedUser) return;
+    let storedUser = await AsyncStorage.getItem('@user_info');
+    // if(!storedUser) return;
     setUser(JSON.parse(storedUser));
   }
 
@@ -47,6 +49,59 @@ export const Home = ({ navigation, props }) => {
       setTransactions(res);
     });
   }, []);
+    userInfo().then();
+  });
+  function calculate() {
+    if(user){
+      return +Math.round(user.totalTransactions*100.0 / user.totalBudget)/100;
+    }
+  }
+
+  const froggy = (CATS[3].percent >= calculate()) ? (
+      <Image source={require('../Cats/froggy.png')} style={[styles.cat, styles.froggy]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const creamsicle = (CATS[5].percent >= calculate()) ? (
+      <Image source={require('../Cats/creamsicle.png')} style={[styles.cat, styles.creamsicle]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const raymond = (CATS[6].percent >= calculate()) ? (
+      <Image source={require('../Cats/raymond.png')} style={[styles.cat, styles.raymond]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const meanie = (CATS[2].percent >= calculate()) ? (
+      <Image source={require('../Cats/meanie.png')} style={[styles.cat, styles.meanie]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const leafy = (CATS[0].percent >= calculate()) ? (
+      <Image source={require('../Cats/leafy.png')} style={[styles.cat, styles.leafy]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const floaty = (CATS[4].percent >= calculate()) ? (
+      <Image source={require('../Cats/floaty.png')} style={[styles.cat, styles.floaty]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const oreo = (CATS[1].percent >= calculate()) ? (
+      <Image source={require('../Cats/oreo.png')} style={[styles.cat, styles.oreo]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const duck = (CATS[7].percent >= calculate()) ? (
+      <Image source={require('../Cats/duck.png')} style={[styles.cat, styles.duck]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const cocoa = (CATS[8].percent >= calculate()) ? (
+      <Image source={require('../Cats/cocoa.png')} style={[styles.cat, styles.cocoa]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
 
   useEffect(() => {
     userInfo();
@@ -91,72 +146,68 @@ export const Home = ({ navigation, props }) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("../assets/temp-background.jpg")}
+        source={require("../assets/overall.jpg")}
         style={{ width: "100%", height: "100%" }}
       >
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", position: "relative" }}>
+          <View style={styles.catContainer}>
+            {leafy}
+            {oreo}
+            {meanie}
+            {froggy}
+            {floaty}
+            {creamsicle}
+            {raymond}
+            {duck}
+            {cocoa}
+          </View>
           <View style={styles.centeredView}>
-            <Overlay
-              animationType="fade"
-              transparent={true}
-              isVisible={visible}
-              fullScreen={true}
-              overlayStyle={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
-            >
+            <Overlay animationType="fade"
+                     transparent={true}
+                     isVisible={visible}
+                     fullScreen={true}
+                     overlayStyle={{backgroundColor: 'rgba(0, 0, 0, 0.45)'}}>
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                   <View style={styles.description}>
-                    <Text style={{ fontSize: 24, fontWeight: "600" }}>
-                      This Month's Budget
-                    </Text>
-                    <Text style={{ fontSize: 10, fontWeight: "600" }}>
-                      Your budget will reset every month.
-                    </Text>
+                    <Text style={{fontSize:24, fontWeight: '600'}}>This Month's Budget</Text>
+                    <Text style={{fontSize:10, fontWeight: '600'}}>Your budget will reset every month.</Text>
                   </View>
                   <Text style={styles.inputLabel}>OVERALL BUDGET</Text>
                   <TextInput
-                    value={overall}
-                    onChangeText={(overall) => {
-                      setOverall(overall);
-                    }}
-                    style={styles.input}
+                      value={overall}
+                      onChangeText={(overall) => {
+                        setOverall(overall)
+                      }}
+                      style={styles.input}
                   />
                   <Text style={styles.inputLabel}>ENTERTAINMENT BUDGET</Text>
                   <TextInput
-                    value={entertain}
-                    onChangeText={(entertain) => {
-                      setEntertain(entertain);
-                    }}
-                    style={styles.input}
+                      value={entertain}
+                      onChangeText={(entertain) => {
+                        setEntertain(entertain)
+                      }}
+                      style={styles.input}
                   />
                   <Text style={styles.inputLabel}>NECESSITY BUDGET</Text>
                   <TextInput
-                    value={necessity}
-                    onChangeText={(necessity) => {
-                      setNecessity(necessity);
-                    }}
-                    style={styles.input}
+                      value={necessity}
+                      onChangeText={(necessity) => {
+                        setNecessity(necessity)
+                      }}
+                      style={styles.input}
                   />
                   <Text style={styles.inputLabel}>PERSONAL BUDGET</Text>
                   <TextInput
-                    value={personal}
-                    onChangeText={(personal) => {
-                      setPersonal(personal);
-                    }}
-                    style={styles.input}
+                      value={personal}
+                      onChangeText={(personal) => {
+                        setPersonal(personal)
+                      }}
+                      style={styles.input}
                   />
                   <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                      onPress={() => save()}
-                      style={styles.saveButton}
-                    >
-                      <Text
-                        style={{
-                          color: "#fff",
-                          fontSize: 16,
-                          fontWeight: "600",
-                        }}
-                      >
+                    <TouchableOpacity onPress={() => save()} style={styles.saveButton}>
+                      <Text style={{color: '#fff', fontSize:16, fontWeight: '600'}}>
                         Save
                       </Text>
                     </TouchableOpacity>
@@ -220,14 +271,14 @@ const styles = StyleSheet.create({
   addButtonContainer: {
     zIndex: 5,
     top: 0,
-    right: 0,
+    right: 10,
     position: "absolute",
     marginBottom: 50,
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   modalView: {
     margin: 20,
@@ -237,12 +288,12 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    position: "relative",
+    position: 'relative',
     maxHeight: 549,
     minWidth: 330,
   },
@@ -257,25 +308,88 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonContainer: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   description: {
     textAlign: "left",
-    paddingBottom: 20,
+    paddingBottom: 20
   },
   input: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     width: 290,
     height: 37,
     borderRadius: 5,
     marginBottom: 28,
-    padding: 8,
+    padding: 8
   },
   inputLabel: {
     fontSize: 10,
     paddingBottom: 6,
-    textAlign: "left",
-    fontWeight: "600",
+    textAlign: 'left',
+    fontWeight: '600'
+  },
+  catContainer: {
+    position: "relative",
+    height: 100+'%',
+    width: 100+'%',
+  },
+  cat: {
+    marginTop: 50,
+    width: 130,
+    height: 130,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    position: 'absolute',
+  },
+  leafy: {
+    top: 35,
+    left: 15,
+    position: "absolute",
+  },
+  oreo: {
+    bottom: 160,
+    right: 10,
+    position: "absolute",
+  },
+  meanie: {
+    top: 75,
+    right: 70,
+    position: "absolute",
+  },
+  froggy: {
+    top: 150,
+    left: 50,
+    position: "absolute",
+  },
+  floaty: {
+    bottom: 250,
+    left: 30,
+    position: "absolute",
+  },
+  creamsicle: {
+    top: 200,
+    right: 75,
+    position: "absolute",
+  },
+  raymond: {
+    bottom: 180,
+    left: 140,
+    position: "absolute",
+  },
+  duck: {
+    bottom: 340,
+    right: 60,
+    position: "absolute",
+  },
+  cocoa: {
+    bottom: 380,
+    left: 10,
+    position: "absolute",
   },
 });

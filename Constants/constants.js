@@ -12,65 +12,59 @@ const LEVEL = {
 
 const CATS = [
     {
-        name: 'cat1',
-        percent: 0.1,
-        type: TYPE.necessities,
-        file: require('../Cats/cat1.png')
-    },
-    {
-        name: 'cat2',
+        name: 'leafy',
         percent: 0.2,
         type: TYPE.necessities,
-        file: require('../Cats/cat2.png')
+        file: require('../Cats/leafy.png')
     },
     {
-        name: 'cat3',
+        name: 'oreo',
         percent: 0.3,
-        type: TYPE.necessities,
-        file: require('../Cats/cat3.png')
+        type: TYPE.entertainment,
+        file: require('../Cats/oreo.png')
     },
     {
-        name: 'cat4',
+        name: 'meanie',
         percent: 0.4,
-        type: TYPE.personal,
-        file: require('../Cats/cat4.png')
+        type: TYPE.necessities,
+        file: require('../Cats/meanie.png')
     },
     {
-        name: 'cat5',
+        name: 'froggy',
         percent: 0.5,
         type: TYPE.personal,
-        file: require('../Cats/cat5.png')
+        file: require('../Cats/froggy.png')
     },
     {
-        name: 'cat6',
+        name: 'floaty',
         percent: 0.6,
-        type: TYPE.personal,
-        file: require('../Cats/cat6.png')
+        type: TYPE.necessities,
+        file: require('../Cats/floaty.png')
     },
     {
-        name: 'cat7',
+        name: 'creamsicle',
         percent: 0.7,
         type: TYPE.personal,
-        file: require('../Cats/cat7.png')
+        file: require('../Cats/creamsicle.png')
     },
     {
-        name: 'cat8',
+        name: 'raymond',
         percent: 0.8,
-        type: TYPE.entertainment,
-        file: require('../Cats/cat8.png')
+        type: TYPE.personal,
+        file: require('../Cats/raymond.png')
     },
     {
-        name: 'cat9',
+        name: 'duck',
         percent: 0.9,
         type: TYPE.entertainment,
-        file: require('../Cats/cat9.png')
+        file: require('../Cats/duck.png')
     },
     {
-        name: 'cat10',
+        name: 'cocoa',
         percent: 1,
         type: TYPE.entertainment,
-        file: require('../Cats/cat10.png')
-    },
+        file: require('../Cats/cocoa.png')
+    }
 ];
 
 export { TYPE, LEVEL, CATS };

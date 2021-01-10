@@ -71,6 +71,10 @@ const BottomTabNavigator = () => {
             height: 70,
             backgroundColor: "#fff",
           },
+          labelStyle: {
+            fontSize: 8,
+            fontWeight: "600",
+          }
         }}
       >
         <Tab.Screen name="OVERALL" component={StackNavigator} />
