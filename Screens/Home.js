@@ -4,21 +4,7 @@ import { Icon } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 
-const TAB_BAR_HEIGHT = 49;
-
 export const Home = ({ navigation, props }) => {
-  const renderContent = () => (
-    <View
-      style={{
-        backgroundColor: "white",
-        padding: 16,
-        height: 1000,
-      }}
-    >
-      <Text>Swipe down to close</Text>
-    </View>
-  );
-
   const sheetRef = React.useRef(null);
   return (
     <View style={styles.container}>
@@ -61,7 +47,8 @@ const styles = StyleSheet.create({
   },
   addButtonContainer: {
     zIndex: 5,
-    bottom: 0,
+    top: 0,
+    right: 0,
     position: "absolute",
     marginBottom: 0,
   },
