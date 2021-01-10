@@ -90,9 +90,10 @@ const Transaction = ({ title, spendingLevel, amount }) => (
   </View>
 );
 
-export default function TransactionsList({ catIcon, category }) {
+export default function TransactionsList({ catIcon, category, transactions }) {
   return (
     <View style={styles.list}>
+      <Text>{transactions ? "hello" : "goodbye"}</Text>
       <Text style={{ fontWeight: "bold", fontSize: 40 }}>{category}</Text>
       <Text>BUDGET</Text>
       <SafeAreaView style={{ marginHorizontal: 30 }}>

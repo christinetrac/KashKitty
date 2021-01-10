@@ -62,10 +62,6 @@ export const Home = ({ navigation, props }) => {
     }
   }
 
-  const HomeList = () => {
-    return <TransactionsList category="Overall"></TransactionsList>;
-  };
-
   const Header = () => {
     let total = 1000;
     let used = 500;
@@ -168,7 +164,14 @@ export const Home = ({ navigation, props }) => {
           ref={sheetRef}
           initialSnap={2}
           snapPoints={[600, 500, 190]}
-          renderContent={HomeList}
+          renderContent={() => {
+            return (
+              <TransactionsList
+                category="Overall"
+                transactions={transactions}
+              ></TransactionsList>
+            );
+          }}
           renderHeader={Header}
           enabledContentGestureInteraction={false}
         />

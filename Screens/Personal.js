@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Icon } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
+import { addUserBudgets, getStoredTransactions } from "../Utils/storage";
 
 const PersonalList = () => {
   return <TransactionsList category="Personal"></TransactionsList>;
@@ -46,7 +47,14 @@ const Header = () => {
 };
 
 export const Personal = ({ navigation }) => {
+  const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
+
+  useEffect(() => {
+    getStoredTransactions().then((res) => {
+      setTransactions(res);
+    });
+  });
   return (
     <View style={styles.container}>
       <ImageBackground

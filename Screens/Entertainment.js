@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
 import { Icon } from "react-native-elements";
+import { addUserBudgets, getStoredTransactions } from "../Utils/storage";
 
 function getBarColor(percentage) {
   let rounded = Math.round(percentage * 100) / 100;
@@ -20,7 +21,7 @@ function getBarColor(percentage) {
     return "#DD6B6B";
   }
 }
-const EnterTainList = () => {
+const EntertainList = () => {
   return <TransactionsList category="Entertainment"></TransactionsList>;
 };
 const Header = () => {
@@ -43,7 +44,14 @@ const Header = () => {
   );
 };
 export const Entertainment = ({ navigation }) => {
+  const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
+
+  useEffect(() => {
+    getStoredTransactions().then((res) => {
+      setTransactions(res);
+    });
+  });
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -58,7 +66,7 @@ export const Entertainment = ({ navigation }) => {
           initialSnap={2}
           snapPoints={[600, 500, 190]}
           borderRadius={10}
-          renderContent={EnterTainList}
+          renderContent={EntertainList}
           renderHeader={Header}
           enabledContentGestureInteraction={false}
         />

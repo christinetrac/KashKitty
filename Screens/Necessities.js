@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
 import { Icon } from "react-native-elements";
+import { addUserBudgets, getStoredTransactions } from "../Utils/storage";
 
 function getBarColor(percentage) {
   let rounded = Math.round(percentage * 100) / 100;
@@ -43,7 +44,14 @@ const Header = () => {
   );
 };
 export const Necessities = ({ navigation }) => {
+  const [transactions, setTransactions] = useState([]);
   const sheetRef = React.useRef(null);
+
+  useEffect(() => {
+    getStoredTransactions().then((res) => {
+      setTransactions(res);
+    });
+  });
   return (
     <View style={styles.container}>
       <ImageBackground
