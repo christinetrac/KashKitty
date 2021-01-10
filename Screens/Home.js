@@ -10,7 +10,7 @@ import {
 import { Icon, Overlay } from "react-native-elements";
 import { FontAwesome } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { addUserBudgets } from "../Utils/storage";
+import { addUserBudgets, getStoredTransactions } from "../Utils/storage";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
@@ -23,11 +23,18 @@ export const Home = ({ navigation, props }) => {
   const [entertain, setEntertain] = useState("");
   const [necessity, setNecessity] = useState("");
   const [personal, setPersonal] = useState("");
+  const [transactions, setTransactions] = useState([]);
 
   const save = () => {
     addUserBudgets(overall, entertain, necessity, personal).then();
     setVisible(!visible);
   };
+
+  useEffect(() => {
+    getStoredTransactions().then((res) => {
+      setTransactions(res);
+    });
+  });
 
   async function userInfo() {
     let storedUser = await AsyncStorage.getItem("@user_info");

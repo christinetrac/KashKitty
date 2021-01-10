@@ -10,10 +10,6 @@ function calculatePercentage(used, total) {
   return used / total;
 }
 
-function getBarColor(percentage) {
-  return "#B7CC33";
-}
-
 export default function SheetHeader({ icon, total, used, color }) {
   let percentage = calculatePercentage(used, total);
   let barColor = color ? color : "#B7CC33";
