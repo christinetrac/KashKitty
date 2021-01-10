@@ -10,12 +10,6 @@ export const Personal = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={{ alignItems: "center" }}>
-          <BudgetBar
-            navigation={navigation}
-            categoryIcon={
-              <FontAwesome name="heart" size={35} color={"#E3E3E3"} />
-            }
-          />
           <Text>Personal</Text>
         </View>
       </ImageBackground>

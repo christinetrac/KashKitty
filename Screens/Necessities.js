@@ -10,12 +10,6 @@ export const Necessities = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={{ alignItems: "center" }}>
-          <BudgetBar
-            navigation={navigation}
-            categoryIcon={
-              <FontAwesome5 name="toilet-paper" size={35} color={"#E3E3E3"} />
-            }
-          />
           <Text>Necessities</Text>
         </View>
       </ImageBackground>

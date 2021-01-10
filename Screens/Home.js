@@ -1,14 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Icon } from "react-native-elements";
-import { FontAwesome } from "@expo/vector-icons";
-import Animated from "react-native-reanimated";
 import BottomSheet from "reanimated-bottom-sheet";
-import TransactionsList from "./TransactionsList";
+import TransactionsList from "../Components/TransactionsList";
 
 const TAB_BAR_HEIGHT = 49;
-
-// const red = Math.min(2 - (2 * Fraction), 1) * 255; const green = Math.min(2 * Fraction, 1) * 255;
 
 export const Home = ({ navigation, props }) => {
   const renderContent = () => (
