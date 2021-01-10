@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { storeTransaction } from '../Utils/storage';
+import { storeTransaction, addUserTransactions } from "../Utils/storage";
 
 export const TransactionPage = (props) => {
     const [description, setDescription] = useState('');
@@ -19,6 +19,7 @@ export const TransactionPage = (props) => {
             level: level
         };
         storeTransaction(transaction).then();
+        addUserTransactions(transaction).then();
     };
     
     const levelSelect = () => {
