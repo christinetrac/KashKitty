@@ -5,6 +5,7 @@ import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome } from "@expo/vector-icons";
 import Animated from "react-native-reanimated";
 import BottomSheet from "reanimated-bottom-sheet";
+import TransactionsList from "./TransactionsList";
 
 const TAB_BAR_HEIGHT = 49;
 
@@ -29,17 +30,7 @@ export const Home = ({ navigation, props }) => {
       <ImageBackground
         source={require("../assets/temp-background.jpg")}
         style={{ width: "100%", height: "100%" }}
-      >
-        <View style={{ alignItems: "center" }}>
-          <BudgetBar
-            navigation={navigation}
-            categoryIcon={
-              <FontAwesome name="paw" size={35} color={"#E3E3E3"} />
-            }
-          />
-          <Text>Home</Text>
-        </View>
-      </ImageBackground>
+      ></ImageBackground>
       <View style={styles.addButtonContainer}>
         <Icon
           raised
@@ -53,9 +44,9 @@ export const Home = ({ navigation, props }) => {
       <BottomSheet
         ref={sheetRef}
         initialSnap={0}
-        snapPoints={[600, 500, 400]}
+        snapPoints={[600, 500, 130]}
         borderRadius={10}
-        renderContent={renderContent}
+        renderContent={TransactionsList}
       />
     </View>
   );
