@@ -55,7 +55,7 @@ const Transaction = ({ title, spendingLevel, amount }) => (
           flex: 1,
         }}
       >
-        <View style={getSpendingClass()} />
+        <View style={getSpendingClass(spendingLevel)} />
       </View>
 
       <View style={{ flex: 2 }}>
@@ -116,7 +116,7 @@ export default function TransactionsList({ catIcon, category, transactions }) {
       ></View>
       <SafeAreaView style={{ marginHorizontal: 20 }}>
         <SectionList
-          style={{ height: 280 }}
+          style={{ height: 400 }}
           sections={DATA}
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
