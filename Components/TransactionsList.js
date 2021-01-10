@@ -94,35 +94,6 @@ const Transaction = ({ title, spendingLevel, amount }) => (
 export default function TransactionsList({ catIcon, category }) {
   return (
     <View style={styles.list}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View
-          style={{
-            width: 40,
-            height: 40,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {catIcon}
-        </View>
-
-        <ProgressBar
-          style={{ marginLeft: 20 }}
-          progress={1}
-          width={250}
-          height={15}
-          borderRadius={10}
-          color={"red"}
-          unfilledColor={"white"}
-        />
-      </View>
-
       <Text style={{ fontWeight: "bold", fontSize: 40 }}>{category}</Text>
       <Text>BUDGET</Text>
       <SafeAreaView style={{ marginHorizontal: 30 }}>
