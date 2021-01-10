@@ -8,10 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@gorhom/bottom-sheet": "^2.0.2",
->>>>>>> 550d3765e461249dbf32ca93427fdcf047a97a2a
     "@react-native-async-storage/async-storage": "^1.13.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.2",

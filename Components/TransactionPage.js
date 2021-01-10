@@ -119,10 +119,9 @@ export const TransactionPage = (props) => {
             </TouchableOpacity>
             </View>
             <TouchableOpacity
-                    navigation={this.props.navigation}
                     style={styles.saveButton}
                     underlayColor='#000'
-                    onPress={() => {saveTransaction(); navigation.navigate("Home")}}>
+                    onPress={() => saveTransaction()}>
                     <Text style={{textAlign:"center",fontWeight: "600"}}>Save</Text>
             </TouchableOpacity>
         </View>
