@@ -7,6 +7,12 @@ import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CATS } from "../Constants/constants";
+import {
+  addUserBudgets,
+  getStoredTransactions,
+  getStoredUser,
+  clearStorage,
+} from "../Utils/storage";
 
 const PersonalList = () => {
   return <TransactionsList category="Personal"></TransactionsList>;
@@ -55,7 +61,7 @@ export const Personal = ({ navigation }) => {
     getStoredTransactions().then((res) => {
       setTransactions(res);
     });
-  });
+  }, []);
   const [user, setUser] = useState(null);
 
   async function userInfo() {
@@ -66,7 +72,7 @@ export const Personal = ({ navigation }) => {
 
   useEffect(() => {
     userInfo().then();
-  });
+  }, []);
 
   function calculate() {
     if (user) {

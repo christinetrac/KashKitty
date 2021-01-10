@@ -52,7 +52,7 @@ export const Entertainment = ({ navigation }) => {
   useEffect(() => {
     getStoredTransactions().then((res) => {
       setTransactions(res);
-    });
+    }, []);
   });
   const [user, setUser] = useState(null);
 
@@ -64,7 +64,7 @@ export const Entertainment = ({ navigation }) => {
 
   useEffect(() => {
     userInfo().then();
-  });
+  }, []);
   function calculate() {
     if (user) {
       return (

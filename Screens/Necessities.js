@@ -53,7 +53,7 @@ export const Necessities = ({ navigation }) => {
     getStoredTransactions().then((res) => {
       setTransactions(res);
     });
-  });
+  }, []);
   const [user, setUser] = useState(null);
 
   async function userInfo() {
@@ -64,7 +64,7 @@ export const Necessities = ({ navigation }) => {
 
   useEffect(() => {
     userInfo().then();
-  });
+  }, []);
   function calculate() {
     if (user) {
       return (
