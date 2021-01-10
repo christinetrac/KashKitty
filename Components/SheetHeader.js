@@ -38,7 +38,6 @@ export default function SheetHeader({ icon, total, used, color }) {
         <View
           style={{
             flexDirection: "row",
-            padding: 10,
             justifyContent: "center",
             alignItems: "center",
           }}
