@@ -1,49 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView, SectionList } from "react-native";
+
+function getSpendingClass(spendingLevel) {
+  if (spendingLevel === "Light Spending") {
+    return styles.lightLevel;
+  } else if (spendingLevel === "Moderate Spending") {
+    return styles.medLevel;
+  } else {
+    return styles.heavyLevel;
+  }
+}
+
 const DATA = [
   {
-    title: "Friday, January 8",
+    title: "Entertainment",
     data: [
       {
-        spendingLevel: "Light spending",
+        spendingLevel: "Light Spending",
         title: "McDonalds",
         amount: 7.43,
         id: 0,
       },
       {
-        spendingLevel: "Light spending",
-        title: "McDonalds",
-        amount: 7.43,
+        spendingLevel: "Moderate Spending",
+        title: "Chipotle",
+        amount: 25.43,
         id: 2,
       },
     ],
   },
   {
-    title: "Sunday, January 10",
+    title: "Personal",
     data: [
       {
-        spendingLevel: "Light spending",
-        title: "McDonalds",
-        amount: 7.43,
+        spendingLevel: "Moderate Spending",
+        title: "Slippers",
+        amount: 3.43,
         id: 1,
-      },
-    ],
-  },
-  {
-    title: "Monday, January 11",
-    data: [
-      {
-        spendingLevel: "Light spending",
-        title: "McDonalds",
-        amount: 7.43,
-        id: 55,
-      },
-      {
-        spendingLevel: "Light spending",
-        title: "McDonalds",
-        amount: 7.43,
-        id: 22,
       },
     ],
   },
@@ -61,14 +55,7 @@ const Transaction = ({ title, spendingLevel, amount }) => (
           flex: 1,
         }}
       >
-        <View
-          style={{
-            backgroundColor: "red",
-            width: 25,
-            height: 25,
-            borderRadius: 100,
-          }}
-        />
+        <View style={getSpendingClass()} />
       </View>
 
       <View style={{ flex: 2 }}>
@@ -91,14 +78,45 @@ const Transaction = ({ title, spendingLevel, amount }) => (
 );
 
 export default function TransactionsList({ catIcon, category, transactions }) {
+  useEffect(() => {
+    console.log(transactions);
+  }, [transactions]);
   return (
     <View style={styles.list}>
-      <Text>{transactions ? "hello" : "goodbye"}</Text>
-      <Text style={{ fontWeight: "bold", fontSize: 40 }}>{category}</Text>
-      <Text>BUDGET</Text>
-      <SafeAreaView style={{ marginHorizontal: 30 }}>
+      <Text
+        style={{
+          fontWeight: "bold",
+          fontSize: 40,
+          alignContent: "flex-end",
+        }}
+      >
+        {category}
+      </Text>
+      <Text style={{ marginBottom: 20 }}>BUDGET</Text>
+      <View
+        style={{
+          backgroundColor: "#B8F2E6",
+          width: 70,
+          height: 70,
+          borderRadius: 16,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ fontWeight: "bold" }}>Mon</Text>
+        <Text style={{ fontWeight: "bold" }}>11</Text>
+      </View>
+      <View
+        style={{
+          borderStyle: "solid",
+          borderWidth: 1,
+          borderRadius: 1,
+          marginVertical: 10,
+        }}
+      ></View>
+      <SafeAreaView style={{ marginHorizontal: 20 }}>
         <SectionList
-          style={{ height: 380 }}
+          style={{ height: 280 }}
           sections={DATA}
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
@@ -119,7 +137,7 @@ export default function TransactionsList({ catIcon, category, transactions }) {
 
 const styles = StyleSheet.create({
   list: {
-    backgroundColor: "white",
+    backgroundColor: "#F8EDEB",
     height: 600,
     padding: 30,
   },
@@ -137,12 +155,30 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   transaction: {
-    backgroundColor: "#EAEAEA",
+    backgroundColor: "white",
     marginVertical: 8,
     borderRadius: 15,
     paddingVertical: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  lightLevel: {
+    backgroundColor: "#BBDCAB",
+    width: 25,
+    height: 25,
+    borderRadius: 100,
+  },
+  medLevel: {
+    backgroundColor: "#EFC99B",
+    width: 25,
+    height: 25,
+    borderRadius: 100,
+  },
+  heavyLevel: {
+    backgroundColor: "#EF9B9B",
+    width: 25,
+    height: 25,
+    borderRadius: 100,
   },
   amount: { fontSize: 20, paddingRight: 15 },
 });

@@ -6,11 +6,17 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import { Icon, Overlay } from "react-native-elements";
 import { FontAwesome } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { addUserBudgets, getStoredTransactions } from "../Utils/storage";
+import {
+  addUserBudgets,
+  getStoredTransactions,
+  getStoredUser,
+  clearStorage,
+} from "../Utils/storage";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
@@ -30,22 +36,22 @@ export const Home = ({ navigation, props }) => {
     setVisible(!visible);
   };
 
+  async function userInfo() {
+    let storedUser = await AsyncStorage.getItem("@user_info");
+    if (!storedUser) return;
+    setUser(JSON.parse(storedUser));
+  }
+
   useEffect(() => {
     getStoredTransactions().then((res) => {
       setTransactions(res);
     });
-  });
-
-  async function userInfo() {
-    let storedUser = await AsyncStorage.getItem("@user_info");
-    JSON.parse(storedUser);
-    if (!storedUser) return;
-    setUser(storedUser);
-  }
+  }, []);
 
   useEffect(() => {
-    userInfo().then();
-  });
+    userInfo();
+  }, []);
+  //TODO: Load after each render
 
   function getBarColor(percentage) {
     let rounded = Math.round(percentage * 100) / 100;
@@ -63,7 +69,7 @@ export const Home = ({ navigation, props }) => {
   }
 
   const Header = () => {
-    let total = 1000;
+    let total = user && user.totalBudget ? user.totalBudget : 0;
     let used = 500;
     return (
       <SheetHeader
@@ -176,6 +182,7 @@ export const Home = ({ navigation, props }) => {
           enabledContentGestureInteraction={false}
         />
       </ImageBackground>
+
       <View style={styles.addButtonContainer}>
         <Icon
           raised

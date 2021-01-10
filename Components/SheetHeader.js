@@ -20,7 +20,7 @@ export default function SheetHeader({ icon, total, used, color }) {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "white",
+        backgroundColor: "#F8EDEB",
       }}
     >
       <View
