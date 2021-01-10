@@ -15,12 +15,16 @@ export default function SheetHeader({ icon, total, used, color }) {
   let barColor = color ? color : "#B7CC33";
 
   return (
+      <View style={{alignItems: "center"}}>
     <View
       style={{
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#F8EDEB",
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        width: 380
       }}
     >
       <View
@@ -30,16 +34,15 @@ export default function SheetHeader({ icon, total, used, color }) {
           alignItems: "center",
         }}
       >
-        <MaterialIcons name="keyboard-arrow-down" size={35} color="#888888" />
+        <MaterialIcons name="keyboard-arrow-up" size={35} color="#888888" />
         <View
           style={{
             flexDirection: "row",
-            padding: 10,
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <View style={{ width: 40, height: 40 }}>{icon}</View>
+          <View style={{ width: 50, height: 50 }}>{icon}</View>
 
           <View
             style={{
@@ -47,7 +50,7 @@ export default function SheetHeader({ icon, total, used, color }) {
               padding: 10,
             }}
           >
-            <Text style={{ color: "#5E6472" }}>${used}</Text>
+            <Text style={{ color: "#5E6472", fontWeight:"600", fontSize:13, paddingBottom:4 }}>${used}</Text>
             <View>
               <ProgressBar
                 progress={percentage}
@@ -64,12 +67,15 @@ export default function SheetHeader({ icon, total, used, color }) {
                 width: "100%",
               }}
             >
-              <Text style={{ color: "#B4B4B4", flex: 1 }}>$0</Text>
+              <Text style={{ color: "#B4B4B4", flex: 1, fontWeight:"600", fontSize:13, paddingTop:4 }}>$0</Text>
               <Text
                 style={{
                   color: "#B4B4B4",
                   flex: 1,
                   textAlign: "right",
+                    fontWeight: "600",
+                    fontSize: 13,
+                    paddingTop:4
                 }}
               >
                 ${total}
@@ -79,5 +85,6 @@ export default function SheetHeader({ icon, total, used, color }) {
         </View>
       </View>
     </View>
+      </View>
   );
 }

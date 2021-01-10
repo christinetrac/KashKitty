@@ -34,7 +34,7 @@ const Header = () => {
       icon={
         <FontAwesome5
           name="toilet-paper"
-          size={30}
+          size={40}
           color={getBarColor(used / total)}
           style={styles.icons}
         />

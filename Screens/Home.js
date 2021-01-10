@@ -182,7 +182,7 @@ export const Home = ({ navigation, props }) => {
         icon={
           <FontAwesome
             name="paw"
-            size={30}
+            size={40}
             color={getBarColor(used / total)}
             style={styles.icons}
           />
