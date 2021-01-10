@@ -20,6 +20,21 @@ const StackNavigator = () => {
         options={{ headerShown: false }}
         component={Home}
       />
+        <Stack.Screen
+            name="Necessities"
+            options={{ headerShown: false }}
+            component={Necessities}
+        />
+        <Stack.Screen
+            name="Entertainment"
+            options={{ headerShown: false }}
+            component={Entertainment}
+        />
+        <Stack.Screen
+            name="Personal"
+            options={{ headerShown: false }}
+            component={Personal}
+        />
       <Stack.Screen
         name="TransactionPage"
         options={{ headerShown: true }}

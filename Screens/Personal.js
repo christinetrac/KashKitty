@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { Icon } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -68,6 +69,16 @@ export const Personal = ({ navigation }) => {
           <Text>Personal</Text>
         </View>
       </ImageBackground>
+      <View style={styles.addButtonContainer}>
+        <Icon
+          raised
+          reverse
+          onPress={() => navigation.navigate("TransactionPage")}
+          name="add"
+          color="#FEC89A"
+          style={styles.addButton}
+        />
+      </View>
       <BottomSheet
         ref={sheetRef}
         initialSnap={2}
@@ -87,5 +98,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  addButton: {
+    zIndex: 5,
+    flex: 1,
+  },
+  addButtonContainer: {
+    zIndex: 5,
+    bottom: 0,
+    position: "absolute",
+    marginBottom: 50,
   },
 });

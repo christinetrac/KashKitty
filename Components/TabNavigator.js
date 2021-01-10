@@ -9,7 +9,7 @@ import {
   PersonalStackNavigator,
   EntertainmentStackNavigator,
 } from "./StackNavigator";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +19,7 @@ const BottomTabNavigator = () => {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            if (route.name === "HOME") {
+            if (route.name === "OVERALL") {
               return (
                 <FontAwesome
                   name="paw"
@@ -59,18 +59,21 @@ const BottomTabNavigator = () => {
           },
         })}
         tabBarOptions={{
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
+          activeTintColor: "#FEC89A",
+          inactiveTintColor: "#D3D3D3",
           style: {
-            height: 78,
+            height: 70,
+            paddingLeft: 20,
+            paddingRight: 20,
+            position: "absolute",
           },
           tabStyle: {
-            height: 78,
+            height: 70,
             backgroundColor: "#fff",
           },
         }}
       >
-        <Tab.Screen name="HOME" component={StackNavigator} />
+        <Tab.Screen name="OVERALL" component={StackNavigator} />
         <Tab.Screen name="NECESSITIES" component={NecessitiesStackNavigator} />
         <Tab.Screen name="ENTERTAIN" component={EntertainmentStackNavigator} />
         <Tab.Screen name="PERSONAL" component={PersonalStackNavigator} />
@@ -81,7 +84,7 @@ const BottomTabNavigator = () => {
 
 const styles = StyleSheet.create({
   icons: {
-    marginTop: 30,
+    marginTop: 20,
   },
 });
 
