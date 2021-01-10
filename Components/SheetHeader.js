@@ -15,12 +15,16 @@ export default function SheetHeader({ icon, total, used, color }) {
   let barColor = color ? color : "#B7CC33";
 
   return (
+      <View style={{alignItems: "center"}}>
     <View
       style={{
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#F8EDEB",
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        width: 380
       }}
     >
       <View
@@ -82,5 +86,6 @@ export default function SheetHeader({ icon, total, used, color }) {
         </View>
       </View>
     </View>
+      </View>
   );
 }
