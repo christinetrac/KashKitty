@@ -30,7 +30,7 @@ export default function SheetHeader({ icon, total, used, color }) {
           alignItems: "center",
         }}
       >
-        <MaterialIcons name="drag-handle" size={40} color="black" />
+        <MaterialIcons name="keyboard-arrow-down" size={35} color="#888888" />
         <View
           style={{
             flexDirection: "row",
