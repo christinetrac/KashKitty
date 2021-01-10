@@ -8,6 +8,7 @@ import {
 import { BottomTabNavigator } from "./Components/TabNavigator";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CATS } from "./Constants/constants";
+import { clearStorage } from "./Utils/storage";
 
 export default function App() {
   const newUser = {
