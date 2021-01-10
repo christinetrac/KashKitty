@@ -1,8 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import BottomSheet from "reanimated-bottom-sheet";
+import TransactionsList from "../Components/TransactionsList";
 
 export const Personal = ({ navigation }) => {
+  const sheetRef = React.useRef(null);
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -13,6 +16,13 @@ export const Personal = ({ navigation }) => {
           <Text>Personal</Text>
         </View>
       </ImageBackground>
+      <BottomSheet
+        ref={sheetRef}
+        initialSnap={0}
+        snapPoints={[600, 500, 130]}
+        borderRadius={10}
+        renderContent={TransactionsList}
+      />
     </View>
   );
 };

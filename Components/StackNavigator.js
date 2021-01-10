@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "../Screens/Home";
 import { TransactionPage } from "./TransactionPage";
-import TransactionsList from "./TransactionsList";
 import { Necessities } from "../Screens/Necessities";
 import { Personal } from "../Screens/Personal";
 import { Entertainment } from "../Screens/Entertainment";
