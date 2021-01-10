@@ -85,14 +85,14 @@ export default function TransactionsList({ catIcon, category, transactions }) {
     <View style={styles.list}>
       <Text
         style={{
-          fontWeight: "bold",
-          fontSize: 40,
+          fontWeight: "600",
+          fontSize: 24,
           alignContent: "flex-end",
         }}
       >
         {category}
       </Text>
-      <Text style={{ marginBottom: 20 }}>BUDGET</Text>
+      <Text style={{ marginBottom: 20, fontSize:10, fontWeight:"600" }}>BUDGET</Text>
       <View
         style={{
           backgroundColor: "#B8F2E6",
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8EDEB",
     height: 600,
     padding: 30,
+    paddingTop: 0,
   },
   container: {
     flex: 1,
