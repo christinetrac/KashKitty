@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView, SectionList } from "react-native";
-import ProgressBar from "react-native-progress/Bar";
 const DATA = [
   {
     title: "Friday, January 8",
