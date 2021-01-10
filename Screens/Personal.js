@@ -54,6 +54,14 @@ export const Personal = ({ navigation }) => {
           color="#FEC89A"
           style={styles.addButton}
         />
+        <Icon
+          raised
+          reverse
+          onPress={() => setVisible(!visible)}
+          name="edit"
+          color="#FEC89A"
+          style={styles.addButton}
+        />
       </View>
     </View>
   );
@@ -72,7 +80,8 @@ const styles = StyleSheet.create({
   },
   addButtonContainer: {
     zIndex: 5,
-    bottom: 0,
+    top: 0,
+    right: 0,
     position: "absolute",
     marginBottom: 50,
   },
