@@ -1,9 +1,31 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Icon } from "react-native-elements";
+import { FontAwesome } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 
+const HomeList = () => {
+  return (
+    <TransactionsList
+      catIcon={
+        <FontAwesome
+          name="paw"
+          size={30}
+          color={"#A8A8A8"}
+          style={styles.icons}
+        />
+      }
+      category="Home"
+    ></TransactionsList>
+  );
+};
+
+const Header = () => {
+  return (
+    <View style={{ height: 20, backgroundColor: "red", height: 50 }}></View>
+  );
+};
 export const Home = ({ navigation, props }) => {
   const sheetRef = React.useRef(null);
   return (
@@ -24,10 +46,12 @@ export const Home = ({ navigation, props }) => {
       </View>
       <BottomSheet
         ref={sheetRef}
-        initialSnap={0}
+        initialSnap={2}
         snapPoints={[600, 500, 130]}
         borderRadius={10}
-        renderContent={TransactionsList}
+        renderContent={HomeList}
+        renderHeader={Header}
+        enabledContentGestureInteraction={false}
       />
     </View>
   );

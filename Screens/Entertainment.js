@@ -4,6 +4,22 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 
+const EnterTainList = () => {
+  return (
+    <TransactionsList
+      catIcon={
+        <FontAwesome5
+          name="utensils"
+          size={30}
+          color={"#A8A8A8"}
+          style={styles.icons}
+        />
+      }
+      category="Entertainment"
+    ></TransactionsList>
+  );
+};
+
 export const Entertainment = ({ navigation }) => {
   const sheetRef = React.useRef(null);
   return (
@@ -18,10 +34,10 @@ export const Entertainment = ({ navigation }) => {
       </ImageBackground>
       <BottomSheet
         ref={sheetRef}
-        initialSnap={0}
+        initialSnap={2}
         snapPoints={[600, 500, 130]}
         borderRadius={10}
-        renderContent={TransactionsList}
+        renderContent={EnterTainList}
       />
     </View>
   );

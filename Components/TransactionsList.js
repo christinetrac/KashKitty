@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView, SectionList } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
-import { FontAwesome } from "@expo/vector-icons";
 const DATA = [
   {
     title: "Friday, January 8",
@@ -22,13 +21,30 @@ const DATA = [
     ],
   },
   {
-    title: "Sunday, January 9",
+    title: "Sunday, January 10",
     data: [
       {
         spendingLevel: "Light spending",
         title: "McDonalds",
         amount: 7.43,
         id: 1,
+      },
+    ],
+  },
+  {
+    title: "Monday, January 11",
+    data: [
+      {
+        spendingLevel: "Light spending",
+        title: "McDonalds",
+        amount: 7.43,
+        id: 55,
+      },
+      {
+        spendingLevel: "Light spending",
+        title: "McDonalds",
+        amount: 7.43,
+        id: 22,
       },
     ],
   },
@@ -75,7 +91,7 @@ const Transaction = ({ title, spendingLevel, amount }) => (
   </View>
 );
 
-export default function TransactionsList(props) {
+export default function TransactionsList({ catIcon, category }) {
   return (
     <View style={styles.list}>
       <View
@@ -85,8 +101,17 @@ export default function TransactionsList(props) {
           alignItems: "center",
         }}
       >
-        {/* TODO Replace with prop */}
-        <FontAwesome name="paw" size={35} color={"#E3E3E3"} />
+        <View
+          style={{
+            width: 40,
+            height: 40,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {catIcon}
+        </View>
+
         <ProgressBar
           style={{ marginLeft: 20 }}
           progress={1}
@@ -98,11 +123,11 @@ export default function TransactionsList(props) {
         />
       </View>
 
-      <Text style={{ fontWeight: "bold", fontSize: 40 }}>Entertainment</Text>
+      <Text style={{ fontWeight: "bold", fontSize: 40 }}>{category}</Text>
       <Text>BUDGET</Text>
       <SafeAreaView style={{ marginHorizontal: 30 }}>
         <SectionList
-          style={{ height: 500 }}
+          style={{ height: 380 }}
           sections={DATA}
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
