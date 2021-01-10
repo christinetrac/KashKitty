@@ -89,6 +89,7 @@ export default function TransactionsList({ catIcon, category, transactions }) {
           fontWeight: "600",
           fontSize: 24,
           alignContent: "flex-end",
+          marginTop: 5
         }}
       >
         {category}
@@ -116,12 +117,14 @@ export default function TransactionsList({ catIcon, category, transactions }) {
         <Text style={{ fontWeight: "700", fontSize:11, lineHeight:15 }}>Mon</Text>
         <Text style={{ fontWeight: "400", fontSize:28, lineHeight:39 }}>11</Text>
       </View>
+      <Text style={{fontSize:10, fontWeight:"600", paddingTop:18, paddingBottom:6}}>TRANSACTION HISTORY</Text>
       <View
         style={{
           borderStyle: "solid",
-          borderWidth: 1,
+          borderWidth: 0.5,
           borderRadius: 1,
           marginVertical: 10,
+          borderColor: "#515151"
         }}
       ></View>
       <SafeAreaView style={{ marginHorizontal: 20 }}>
