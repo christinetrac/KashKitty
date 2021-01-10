@@ -32,7 +32,7 @@ export const Entertainment = ({ navigation }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <View style={{ alignItems: "center" }}>
-          <Text>Entertainment</Text>
+
         </View>
         <BottomSheet
           ref={sheetRef}
@@ -50,14 +50,6 @@ export const Entertainment = ({ navigation }) => {
           reverse
           onPress={() => navigation.navigate("TransactionPage")}
           name="add"
-          color="#FEC89A"
-          style={styles.addButton}
-        />
-        <Icon
-          raised
-          reverse
-          onPress={() => setVisible(!visible)}
-          name="edit"
           color="#FEC89A"
           style={styles.addButton}
         />
@@ -80,7 +72,7 @@ const styles = StyleSheet.create({
   addButtonContainer: {
     zIndex: 5,
     top: 0,
-    right: 0,
+    right: 10,
     position: "absolute",
     marginBottom: 50,
   },

@@ -1,10 +1,12 @@
-import React from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-import { Icon } from "react-native-elements";
+import React, {useEffect, useState} from "react";
+import {Image, ImageBackground, StyleSheet, View} from "react-native";
+import {FontAwesome} from "@expo/vector-icons";
+import {Icon} from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
 import SheetHeader from "../Components/SheetHeader";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { CATS } from '../Constants/constants'
 
 const PersonalList = () => {
   return <TransactionsList category="Personal"></TransactionsList>;
@@ -26,14 +28,50 @@ const Header = () => {
 
 export const Personal = ({ navigation }) => {
   const sheetRef = React.useRef(null);
+  const [user, setUser] = useState(null);
+
+  async function userInfo() {
+    let storedUser = await AsyncStorage.getItem('@user_info');
+    // if(!storedUser) return;
+    setUser(JSON.parse(storedUser));
+  }
+
+  useEffect(() => {
+    userInfo().then();
+  });
+
+  function calculate() {
+    if(user){
+      return +Math.round(user.totalTransactions*100.0 / user.totalBudget)/100;
+    }
+  }
+
+  const froggy = (CATS[3].percent >= calculate()) ? (
+      <Image source={require('../Cats/froggy.png')} style={[styles.cat, styles.froggy]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const creamsicle = (CATS[5].percent >= calculate()) ? (
+      <Image source={require('../Cats/creamsicle.png')} style={[styles.cat, styles.creamsicle]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+  const raymond = (CATS[6].percent >= calculate()) ? (
+      <Image source={require('../Cats/raymond.png')} style={[styles.cat, styles.raymond]} resizeMode="contain"/>
+  ) : (
+      <View/>
+  );
+
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("../assets/temp-background.jpg")}
+        source={require("../assets/personal.jpg")}
         style={{ width: "100%", height: "100%" }}
       >
-        <View style={{ alignItems: "center" }}>
-          <Text>Personal</Text>
+        <View style={styles.catContainer}>
+          {froggy}
+          {creamsicle}
+          {raymond}
         </View>
         <BottomSheet
           ref={sheetRef}
@@ -51,14 +89,6 @@ export const Personal = ({ navigation }) => {
           reverse
           onPress={() => navigation.navigate("TransactionPage")}
           name="add"
-          color="#FEC89A"
-          style={styles.addButton}
-        />
-        <Icon
-          raised
-          reverse
-          onPress={() => setVisible(!visible)}
-          name="edit"
           color="#FEC89A"
           style={styles.addButton}
         />
@@ -81,8 +111,41 @@ const styles = StyleSheet.create({
   addButtonContainer: {
     zIndex: 5,
     top: 0,
-    right: 0,
+    right: 10,
     position: "absolute",
     marginBottom: 50,
+  },
+  catContainer: {
+    position: "relative",
+    height: 100+'%',
+    width: 100+'%',
+  },
+  cat: {
+    marginTop: 50,
+    width: 130,
+    height: 130,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    position: 'absolute',
+  },
+  creamsicle: {
+    top: 170,
+    left: 120,
+    position: "absolute",
+  },
+  raymond: {
+    bottom: 260,
+    right: 90,
+    position: "absolute",
+  },
+  froggy: {
+    top: 160,
+    right: 0,
+    position: "absolute",
   },
 });

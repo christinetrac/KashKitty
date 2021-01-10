@@ -13,55 +13,55 @@ const LEVEL = {
 const CATS = [
     {
         name: 'leafy',
-        percent: 0.1,
+        percent: 0.2,
         type: TYPE.necessities,
         file: require('../Cats/leafy.png')
     },
     {
         name: 'oreo',
-        percent: 0.2,
-        type: TYPE.necessities,
+        percent: 0.3,
+        type: TYPE.entertainment,
         file: require('../Cats/oreo.png')
     },
     {
         name: 'meanie',
-        percent: 0.3,
+        percent: 0.4,
         type: TYPE.necessities,
         file: require('../Cats/meanie.png')
     },
     {
         name: 'froggy',
-        percent: 0.4,
+        percent: 0.5,
         type: TYPE.personal,
         file: require('../Cats/froggy.png')
     },
     {
         name: 'floaty',
-        percent: 0.5,
-        type: TYPE.personal,
+        percent: 0.6,
+        type: TYPE.necessities,
         file: require('../Cats/floaty.png')
     },
     {
         name: 'creamsicle',
-        percent: 0.6,
+        percent: 0.7,
         type: TYPE.personal,
         file: require('../Cats/creamsicle.png')
     },
     {
         name: 'raymond',
-        percent: 0.7,
+        percent: 0.8,
         type: TYPE.personal,
         file: require('../Cats/raymond.png')
     },
     {
         name: 'duck',
-        percent: 0.8,
+        percent: 0.9,
         type: TYPE.entertainment,
         file: require('../Cats/duck.png')
     },
     {
         name: 'cocoa',
-        percent: 0.9,
+        percent: 1,
         type: TYPE.entertainment,
         file: require('../Cats/cocoa.png')
     }
