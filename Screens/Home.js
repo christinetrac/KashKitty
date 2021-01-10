@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, Text, View, ImageBackground, TextInput, TouchableOpacity} from "react-native";
+import {StyleSheet, Text, View, ImageBackground, TextInput, TouchableOpacity, Image} from "react-native";
 import {Icon, Overlay} from "react-native-elements";
 import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome } from "@expo/vector-icons";
@@ -45,6 +45,15 @@ export const Home = ({ navigation, props }) => {
               <FontAwesome name="paw" size={35} color={"#E3E3E3"} />
             }
           />
+          <Image source={require('../Cats/leafy.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/oreo.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/meanie.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/froggy.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/floaty.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/creamsicle.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/raymond.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/duck.png')} style={styles.cat} resizeMode="contain"/>
+          <Image source={require('../Cats/cocoa.png')} style={styles.cat} resizeMode="contain"/>
           <View style={styles.centeredView}>
             <Overlay animationType="fade"
                      transparent={true}
@@ -195,5 +204,20 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
     textAlign: 'left',
     fontWeight: '600'
+  },
+  cat: {
+    marginTop: 50,
+    width: 140,
+    height: 140,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    position: 'absolute',
+  },
+  leafy: {
   }
 });
