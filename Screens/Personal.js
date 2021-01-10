@@ -3,20 +3,56 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import TransactionsList from "../Components/TransactionsList";
+import { MaterialIcons } from "@expo/vector-icons";
+import ProgressBar from "react-native-progress/Bar";
 
 const PersonalList = () => {
+  return <TransactionsList category="Personal"></TransactionsList>;
+};
+const Header = () => {
   return (
-    <TransactionsList
-      catIcon={
-        <FontAwesome
-          name="heart"
-          size={30}
-          color={"#A8A8A8"}
-          style={styles.icons}
-        />
-      }
-      category="Personal"
-    ></TransactionsList>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <View
+        style={{
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialIcons name="drag-handle" size={40} color="black" />
+        <View
+          style={{
+            flexDirection: "row",
+            padding: 20,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FontAwesome
+            name="heart"
+            size={30}
+            color={"#A8A8A8"}
+            style={styles.icons}
+          />
+          <ProgressBar
+            style={{ marginLeft: 20 }}
+            progress={1}
+            width={250}
+            height={15}
+            borderRadius={10}
+            color={"red"}
+            unfilledColor={"white"}
+          />
+        </View>
+      </View>
+    </View>
   );
 };
 
@@ -35,9 +71,11 @@ export const Personal = ({ navigation }) => {
       <BottomSheet
         ref={sheetRef}
         initialSnap={2}
-        snapPoints={[600, 500, 130]}
+        snapPoints={[600, 500, 160]}
         borderRadius={10}
         renderContent={PersonalList}
+        renderHeader={Header}
+        enabledContentGestureInteraction={false}
       />
     </View>
   );

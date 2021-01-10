@@ -8,19 +8,7 @@ import ProgressBar from "react-native-progress/Bar";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const HomeList = () => {
-  return (
-    <TransactionsList
-      catIcon={
-        <FontAwesome
-          name="paw"
-          size={30}
-          color={"#A8A8A8"}
-          style={styles.icons}
-        />
-      }
-      category="Home"
-    ></TransactionsList>
-  );
+  return <TransactionsList category="Overall"></TransactionsList>;
 };
 
 const Header = () => {
