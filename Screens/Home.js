@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, Text, View, ImageBackground, TextInput, TouchableOpacity, Image} from "react-native";
+import {StyleSheet, Text, View, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import {Icon, Overlay} from "react-native-elements";
 import BudgetBar from "../Components/BudgetBar";
 import { FontAwesome } from "@expo/vector-icons";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {addUserBudgets} from "../Utils/storage";
-
-// const red = Math.min(2 - (2 * Fraction), 1) * 255; const green = Math.min(2 * Fraction, 1) * 255;
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { addUserBudgets } from "../Utils/storage";
+import BottomSheet from "reanimated-bottom-sheet";
+import TransactionsList from "../Components/TransactionsList";
+import SheetHeader from "../Components/SheetHeader";
 
 export const Home = ({ navigation, props }) => {
+  const sheetRef = React.useRef(null);
   const [user, setUser] = useState(null);
   const [visible, setVisible] = useState(false);
   const [overall, setOverall] = useState('');
@@ -28,9 +30,30 @@ export const Home = ({ navigation, props }) => {
     setUser(storedUser);
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     userInfo().then();
   });
+
+  const HomeList = () => {
+    return <TransactionsList category="Overall"></TransactionsList>;
+  };
+
+  const Header = () => {
+    return (
+      <SheetHeader
+        icon={
+          <FontAwesome
+            name="paw"
+            size={30}
+            color={"#A8A8A8"}
+            style={styles.icons}
+          />
+        }
+        total={1000}
+        used={55}
+      />
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -110,6 +133,14 @@ export const Home = ({ navigation, props }) => {
             </Overlay>
           </View>
         </View>
+        <BottomSheet
+          ref={sheetRef}
+          initialSnap={2}
+          snapPoints={[600, 500, 160]}
+          renderContent={HomeList}
+          renderHeader={Header}
+          enabledContentGestureInteraction={false}
+        />
       </ImageBackground>
       <View style={styles.addButtonContainer}>
         <Icon
@@ -121,12 +152,12 @@ export const Home = ({ navigation, props }) => {
           style={styles.addButton}
         />
         <Icon
-            raised
-            reverse
-            onPress={() => setVisible(!visible)}
-            name="edit"
-            color="#FEC89A"
-            style={styles.addButton}
+          raised
+          reverse
+          onPress={() => setVisible(!visible)}
+          name="edit"
+          color="#FEC89A"
+          style={styles.addButton}
         />
       </View>
     </View>
@@ -147,7 +178,8 @@ const styles = StyleSheet.create({
   },
   addButtonContainer: {
     zIndex: 5,
-    bottom: 0,
+    top: 0,
+    right: 0,
     position: "absolute",
     marginBottom: 50,
   },
