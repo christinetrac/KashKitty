@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: "#F8EDEB",
     height: 600,
-    padding: 30,
+    padding: 31,
     paddingTop: 0,
     width: 380,
   },
