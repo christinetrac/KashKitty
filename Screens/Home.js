@@ -55,6 +55,8 @@ export const Home = ({ navigation, props }) => {
             style={styles.icons}
           />
         }
+        total={1000}
+        used={55}
       />
     );
   };
