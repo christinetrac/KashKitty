@@ -47,7 +47,7 @@ export default function SheetHeader({ icon, total, used, color }) {
               padding: 10,
             }}
           >
-            <Text style={{ color: "#5E6472" }}>${used}</Text>
+            <Text style={{ color: "#5E6472", fontWeight:"600", fontSize:13, paddingBottom:4 }}>${used}</Text>
             <View>
               <ProgressBar
                 progress={percentage}
@@ -64,12 +64,15 @@ export default function SheetHeader({ icon, total, used, color }) {
                 width: "100%",
               }}
             >
-              <Text style={{ color: "#B4B4B4", flex: 1 }}>$0</Text>
+              <Text style={{ color: "#B4B4B4", flex: 1, fontWeight:"600", fontSize:13, paddingTop:4 }}>$0</Text>
               <Text
                 style={{
                   color: "#B4B4B4",
                   flex: 1,
                   textAlign: "right",
+                    fontWeight: "600",
+                    fontSize: 13,
+                    paddingTop:4
                 }}
               >
                 ${total}
