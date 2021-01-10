@@ -42,7 +42,7 @@ export default function SheetHeader({ icon, total, used, color }) {
             alignItems: "center",
           }}
         >
-          <View style={{ width: 40, height: 40 }}>{icon}</View>
+          <View style={{ width: 50, height: 50 }}>{icon}</View>
 
           <View
             style={{
